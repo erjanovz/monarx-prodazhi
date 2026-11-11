@@ -1,0 +1,876 @@
+// Chart context and hooks
+
+export {
+  DEFAULT_ANIMATION_DURATION_MS,
+  DEFAULT_ANIMATION_EASING,
+  DEFAULT_CHART_ENTER_TRANSITION,
+} from "./animation";
+// Area chart components
+export { Area, type AreaProps } from "./area";
+export { AreaChart, type AreaChartProps } from "./area-chart";
+export {
+  AreaChartLoading,
+  type AreaChartLoadingProps,
+} from "./area-chart-loading";
+// Shared chart elements
+export {
+  Background,
+  BackgroundPatternLayer,
+  type BackgroundPatternLayerProps,
+  type BackgroundProps,
+} from "./background";
+export {
+  Band,
+  type BandFadeEdges,
+  type BandFillType,
+  type BandProps,
+  type BandStrokeProps,
+} from "./band";
+export { type BandConfig, extractBandConfigs } from "./band-config";
+// Bar chart components
+export {
+  Bar,
+  type BarAnimationType,
+  type BarLineCap,
+  type BarProps,
+} from "./bar";
+export { BarChart, type BarChartProps, type BarOrientation } from "./bar-chart";
+// Bar chart loading skeleton (a `status="loading"` shortcut)
+export {
+  BarChartLoading,
+  type BarChartLoadingProps,
+} from "./bar-chart-loading";
+// Bar 3D depth + glass surfaces (composable layers for BarChart)
+export {
+  BarDepthBack,
+  type BarDepthBackProps,
+  type BarDepthEntry,
+  BarDepthFront,
+  type BarDepthFrontProps,
+  BarDepthProvider,
+  type BarDepthProviderProps,
+  type BarDepthSegment,
+  BarPulse,
+  type BarPulseProps,
+  useBarDepthEntries,
+} from "./bar-depth";
+export {
+  BarColumnTrack,
+  type BarColumnTrackProps,
+  BarSquares,
+  type BarSquaresProps,
+  type GradientStop,
+} from "./bar-squares";
+export {
+  computeSquareColumn,
+  type SquareColumnLayout,
+  topSquareCenterY,
+} from "./bar-squares-layout";
+export { BarXAxis, type BarXAxisProps } from "./bar-x-axis";
+export { BarYAxis, type BarYAxisProps } from "./bar-y-axis";
+export {
+  type BollingerBandsOptions,
+  withBollingerBands,
+} from "./bollinger";
+export { Candlestick, type CandlestickProps } from "./candlestick";
+export {
+  CandlestickChart,
+  type CandlestickChartProps,
+  type OHLCDataPoint,
+} from "./candlestick-chart";
+export {
+  ChartBrush,
+  type ChartBrushProps,
+  type ChartBrushSelection,
+} from "./chart-brush";
+export {
+  ChartBrushLayout,
+  type ChartBrushLayoutProps,
+  type ChartBrushLayoutState,
+} from "./chart-brush-layout";
+export {
+  type ChartBrushPatternPreset,
+  ChartBrushSelectionOverlay,
+  type ChartBrushSelectionOverlayProps,
+  type ChartBrushSelectionPattern,
+} from "./chart-brush-selection-overlay";
+export {
+  ChartBrushTrackOverlay,
+  type ChartBrushTrackOverlayProps,
+  type ChartBrushTrackOverlayStyle,
+} from "./chart-brush-track-overlay";
+export {
+  chartCenterContainerClassName,
+  chartCenterLabelClassName,
+  chartCenterValueClassName,
+} from "./chart-center-typography";
+export { CHART_CLIP_PASSTHROUGH } from "./chart-child-passthrough";
+export {
+  ChartConfigProvider,
+  type ChartConfigProviderProps,
+  type ChartConfigValue,
+  DEFAULT_CHART_CONFIG,
+  resolveTooltipBoxMotion,
+  type SpringConfig,
+  useChartConfig,
+} from "./chart-config-context";
+export {
+  type ChartContextValue,
+  type ChartHoverContextValue,
+  ChartProvider,
+  type ChartStableContextValue,
+  chartCssVars,
+  defaultScatterColors,
+  type LineConfig,
+  type Margin,
+  type TooltipData,
+  useChart,
+  useChartHover,
+  useChartStable,
+  useYScale,
+} from "./chart-context";
+export {
+  ChartCrosshair,
+  type ChartCrosshairProps,
+} from "./chart-crosshair";
+// Legacy legend component (backward compatibility)
+export {
+  ChartLegend,
+  type ChartLegendProps,
+  type LegendItem,
+} from "./chart-legend";
+export {
+  ChartLegendHoverProvider,
+  useChartLegendHover,
+} from "./chart-legend-hover";
+export {
+  ChartLoadingLabel,
+  type ChartLoadingLabelProps,
+} from "./chart-loading-label";
+export {
+  type ChartPhase,
+  type ChartStatus,
+  DEFAULT_CHART_LIFECYCLE,
+  DEFAULT_CHART_STATUS,
+  DEFAULT_Y_DOMAIN_TWEEN_MS,
+  isChartInteractionPhase,
+  type LoadingStyle,
+  resolveRestingChartPhase,
+} from "./chart-phase";
+export {
+  ChartRevealClip,
+  type ChartRevealClipProps,
+} from "./chart-reveal-clip";
+export {
+  CHART_SCALE_VARS,
+  type ChartScaleVars,
+  chartScaleCssVars,
+} from "./chart-scale";
+export {
+  ChartStatFlow,
+  type ChartStatFlowFormat,
+  type ChartStatFlowProps,
+  defaultChartStatFlowFormat,
+} from "./chart-stat-flow";
+// Choropleth chart components
+export {
+  ChoroplethBackground,
+  type ChoroplethBackgroundProps,
+  type ChoroplethCameraApi,
+  ChoroplethChart,
+  type ChoroplethChartProps,
+  type ChoroplethContextValue,
+  ChoroplethDotGrid,
+  type ChoroplethDotGridProps,
+  type ChoroplethDotLattice,
+  type ChoroplethFeature,
+  ChoroplethFeatureComponent,
+  type ChoroplethFeatureProperties,
+  type ChoroplethFeatureProps,
+  type ChoroplethFocusView,
+  ChoroplethGraticule,
+  type ChoroplethGraticuleProps,
+  ChoroplethMarker,
+  type ChoroplethMarkerProps,
+  type ChoroplethMarkerPulse,
+  type ChoroplethMarkerShape,
+  type ChoroplethMarkerTooltipData,
+  type ChoroplethOverviewView,
+  type ChoroplethPerspective,
+  ChoroplethProvider,
+  ChoroplethTooltip,
+  type ChoroplethTooltipData,
+  type ChoroplethTooltipProps,
+  type ChoroplethViewSide,
+  type ChoroplethZoomTransition,
+  choroplethCssVars,
+  defaultChoroplethColors,
+  type TransformMatrix,
+  useChoropleth,
+  useChoroplethCamera,
+  useChoroplethZoom,
+} from "./choropleth";
+// Composed time-series (line + area + SeriesBar on shared time scale)
+export {
+  ComposedChart,
+  type ComposedChartProps,
+} from "./composed-chart";
+// Date-axis utilities (weekend shading, deadline marker)
+export {
+  computeWeekendIndexRuns,
+  computeWeekendRanges,
+  type DateRange,
+  type DateRangeAlign,
+  DEFAULT_WEEKEND_DAYS,
+  isWeekendDate,
+  type WeekdayIndex,
+} from "./date-ranges";
+export {
+  Deadline,
+  type DeadlineDate,
+  type DeadlineFillType,
+  type DeadlineProps,
+} from "./deadline";
+// Line chart components
+export type { StrokeGradient, StrokeGradientStop } from "./fade-edges";
+// Funnel chart components
+export {
+  FunnelChart,
+  type FunnelChartProps,
+  type FunnelGradientStop,
+  type FunnelStage,
+} from "./funnel-chart";
+// Gauge chart
+export {
+  Gauge,
+  type GaugeArcStyle,
+  type GaugeCenterDiscOptions,
+  type GaugeDotsOptions,
+  type GaugeGlowOptions,
+  type GaugeNeedleOptions,
+  type GaugeNeedleVariant,
+  type GaugeOrientation,
+  type GaugeProgressRingOptions,
+  type GaugeProps,
+  type GaugeRulerLabelOptions,
+  type GaugeRulerOptions,
+  type GaugeRulerPosition,
+  type GaugeSectorOptions,
+  type GaugeZone,
+  type GaugeZoneDisplay,
+} from "./gauge";
+export type {
+  GaugeLabelAlign,
+  GaugeLabelPlacement,
+} from "./gauge-label-layout";
+export {
+  type GenerateChartSkeletonDataOptions,
+  generateChartSkeletonData,
+} from "./generate-chart-skeleton-data";
+// SVG gradient defs (same API as @visx/gradient) for bar / area fills
+export {
+  GradientDarkgreenGreen,
+  GradientLightgreenGreen,
+  GradientOrangeRed,
+  GradientPinkBlue,
+  GradientPinkRed,
+  GradientPurpleOrange,
+  GradientPurpleTeal,
+  GradientSteelPurple,
+  GradientTealBlue,
+  LinearGradient,
+  type LinearGradientProps,
+  RadialGradient,
+  type RadialGradientProps,
+} from "./gradients";
+export { Grid, type GridProps } from "./grid";
+// Heatmap chart components
+export {
+  buildHeatmapColorScale,
+  buildHeatmapColorScaleFromStyles,
+  buildHeatmapFillScale,
+  buildHeatmapLegendGradient,
+  buildHeatmapRowOpacity,
+  defaultHeatmapColorScale,
+  defaultHeatmapFillScale,
+  filterHeatmapColumns,
+  formatHeatmapContributionLabel,
+  formatHeatmapTooltipDate,
+  formatHeatmapTooltipWeekday,
+  formatHeatmapYAxisLabel,
+  getHeatmapCalendarRangeStart,
+  getHeatmapColumnMonthAnchor,
+  getHeatmapDayLabels,
+  getHeatmapSeparatorColumnIndices,
+  getHeatmapTimeExtent,
+  getHeatmapWeekCount,
+  getHeatmapWeekStartAlignedToRange,
+  getHeatmapWeekStartSunday,
+  getHeatmapYearStartMonth,
+  HEATMAP_DAY_LABELS,
+  HEATMAP_DEFAULT_LEVEL_COLORS,
+  HEATMAP_DEFAULT_LEVEL_STYLES,
+  HEATMAP_LEGEND_LEVELS,
+  HEATMAP_MONTHS_ONE_YEAR,
+  HEATMAP_MONTHS_SIX,
+  HEATMAP_WEEKS_ONE_YEAR,
+  type HeatmapBin,
+  HeatmapCells,
+  type HeatmapCellsProps,
+  HeatmapChart,
+  HeatmapChartLoading,
+  type HeatmapChartLoadingProps,
+  type HeatmapChartProps,
+  type HeatmapColumn,
+  type HeatmapContextValue,
+  HeatmapInteractionBoundary,
+  HeatmapInteractionProvider,
+  type HeatmapLayout,
+  HeatmapLegend,
+  type HeatmapLegendProps,
+  type HeatmapLegendVariant,
+  type HeatmapLevelColors,
+  type HeatmapLevelFillMode,
+  type HeatmapLevelStyle,
+  type HeatmapLevelStyles,
+  HeatmapProvider,
+  HeatmapSeparator,
+  type HeatmapSeparatorProps,
+  HeatmapTooltip,
+  type HeatmapTooltipProps,
+  type HeatmapWeekRange,
+  type HeatmapWeekStartDay,
+  HeatmapXAxis,
+  type HeatmapXAxisProps,
+  HeatmapYAxis,
+  type HeatmapYAxisLabelFormat,
+  type HeatmapYAxisProps,
+  type HeatmapYAxisTickFilter,
+  heatmapCssVars,
+  heatmapLevelPatternId,
+  inferHeatmapCalendarRangeStart,
+  isHeatmapLevelPattern,
+  levelColorsFromStyles,
+  levelStylesFromColors,
+  resolveHeatmapLevelStyles,
+  resolveHeatmapWeekRange,
+  shouldShowHeatmapYAxisTick,
+  useHeatmap,
+} from "./heatmap";
+export {
+  type IndicatorFadeEdges,
+  indicatorFadeGradientStops,
+  resolveVerticalFadeSides,
+} from "./indicator-fade";
+// Composable legend components
+export {
+  Legend,
+  type LegendContextValue,
+  LegendItem as LegendItemComponent,
+  type LegendItemContextValue,
+  type LegendItemData,
+  type LegendItemProps,
+  LegendLabel,
+  type LegendLabelProps,
+  LegendMarker,
+  type LegendMarkerProps,
+  LegendProgress,
+  type LegendProgressProps,
+  type LegendProps,
+  LegendValue,
+  type LegendValueProps,
+  legendCssVars,
+  useLegend,
+  useLegendItem,
+} from "./legend";
+export {
+  Line,
+  type LineGlow,
+  type LineHighlight,
+  type LineProps,
+} from "./line";
+export {
+  LineBackdrop,
+  type LineBackdropProps,
+  type LineBackdropStop,
+} from "./line-backdrop";
+export { LineChart, type LineChartProps } from "./line-chart";
+export {
+  LineChartLoading,
+  type LineChartLoadingProps,
+} from "./line-chart-loading";
+export {
+  type LineLoadingPulseMode,
+  LineLoadingPulseStroke,
+  type LineLoadingPulseStrokeProps,
+  resolveLineLoadingPulseMode,
+} from "./line-loading-pulse";
+export {
+  LineSeriesTerminalMarker,
+  type LineSeriesTerminalMarkerProps,
+} from "./line-series-terminal-marker";
+export {
+  detectMomentum,
+  LiveLine,
+  type LiveLineProps,
+  type Momentum,
+  type MomentumColors,
+} from "./live-line";
+// Live line chart (real-time streaming)
+export {
+  LiveLineChart,
+  type LiveLineChartProps,
+  type LiveLinePoint,
+} from "./live-line-chart";
+export { LiveXAxis, type LiveXAxisProps } from "./live-x-axis";
+export {
+  LiveYAxis,
+  type LiveYAxisProps,
+  type LiveYAxisTickOptions,
+  useLiveYAxisTickValues,
+} from "./live-y-axis";
+// Sweep loading visuals: `loadingStyle="sweep"` on Line/Area + bar skeleton
+export {
+  BarLoadingSkeleton,
+  type BarLoadingSkeletonProps,
+  getSkeletonHeights,
+  LineLoadingSweep,
+  type LineLoadingSweepProps,
+} from "./loading-sweep";
+// Marker components
+export {
+  type ChartMarker,
+  ChartMarkers,
+  type ChartMarkersProps,
+  MarkerGroup,
+  type MarkerGroupProps,
+  MarkerTooltipContent,
+  type MarkerTooltipContentProps,
+  useActiveMarkers,
+} from "./markers";
+export { PatternArea, type PatternAreaProps } from "./pattern-area";
+export {
+  isCirclePattern,
+  isCirclesPattern,
+  type LegacyPatternPresetId,
+  PATTERN_PRESET_IDS,
+  PATTERN_PRESETS,
+  PatternPreset,
+  type PatternPresetFamily,
+  type PatternPresetId,
+  type PatternPresetKey,
+  type PatternPresetMeta,
+  type PatternPresetOptions,
+  type PatternPresetProps,
+  patternPresetTileSize,
+  renderPatternPreset,
+  resolvePatternPresetId,
+} from "./pattern-preset";
+export { PatternTile, type PatternTileProps } from "./pattern-tile";
+// Pie chart components
+export { PieCenter, type PieCenterProps } from "./pie-center";
+export {
+  PieCenterShell,
+  type PieCenterShellProps,
+} from "./pie-center-shell";
+export {
+  DEFAULT_HOVER_OFFSET,
+  PieChart,
+  type PieChartProps,
+} from "./pie-chart";
+export {
+  defaultPieColors,
+  type PieArcData,
+  type PieContextValue,
+  type PieData,
+  PieProvider,
+  pieCssVars,
+  usePie,
+  usePieHover,
+  usePieStable,
+} from "./pie-context";
+export {
+  PieSlice,
+  type PieSliceHoverEffect,
+  type PieSliceProps,
+} from "./pie-slice";
+export {
+  DEFAULT_PIE_TICKS_SWEEP_TRANSITION,
+  PieTicks,
+  type PieTicksHoverEffect,
+  type PieTicksProps,
+} from "./pie-ticks";
+// Profit/loss line (sign-colored segments on LineChart)
+export {
+  PROFIT_LOSS_LEGEND_ITEMS,
+  ProfitLossLegend,
+  type ProfitLossLegendProps,
+} from "./profit-loss-legend";
+export {
+  ProfitLossLegendHoverProvider,
+  useProfitLossLegendHover,
+} from "./profit-loss-legend-hover";
+export {
+  PROFIT_LOSS_NEGATIVE_COLOR,
+  PROFIT_LOSS_POSITIVE_COLOR,
+  PROFIT_LOSS_TOOLTIP_LABEL_FALLBACK,
+  ProfitLossLine,
+  type ProfitLossLineProps,
+  profitLossColor,
+  resolveProfitLossTooltipLabel,
+} from "./profit-loss-line";
+export {
+  type ProfitLossSegment,
+  splitProfitLossSegments,
+} from "./profit-loss-segments";
+export {
+  extractProjectionLineConfigs,
+  mergeProjectionXDomainMax,
+  mergeProjectionYDomain,
+  type ProjectionLineConfig,
+} from "./projection-config";
+export {
+  ProjectionLine,
+  type ProjectionLineProps,
+  type ProjectionStrokeStyle,
+} from "./projection-line";
+export {
+  ProjectionLineEndMarker,
+  type ProjectionLineEndMarkerProps,
+} from "./projection-line-end-marker";
+export {
+  type BuildProjectionPathOptions,
+  buildHorizontalTangentBezierPath,
+  buildProjectionPath,
+  computeProjectionAnchorTangentSlope,
+  type ProjectionAutoMethod,
+  type ProjectionCurveKind,
+  type ProjectionMode,
+  type ProjectionPathDensity,
+  type ProjectionPoint,
+  projectionDateExtents,
+  projectionValueExtents,
+} from "./projection-utils";
+// Radar chart components
+export { RadarArea, type RadarAreaProps } from "./radar-area";
+export { RadarAxis, type RadarAxisProps } from "./radar-axis";
+export { RadarChart, type RadarChartProps } from "./radar-chart";
+export {
+  defaultRadarColors,
+  type RadarContextValue,
+  type RadarData,
+  type RadarMetric,
+  RadarProvider,
+  radarCssVars,
+  useRadar,
+  useRadarHover,
+  useRadarStable,
+} from "./radar-context";
+export { RadarGrid, type RadarGridProps } from "./radar-grid";
+export { RadarLabels, type RadarLabelsProps } from "./radar-labels";
+// Radial charts (24h clock, band, time, angular rings)
+export {
+  RadialArea,
+  type RadialAreaCurve,
+  type RadialAreaProps,
+  type RadialAreaStroke,
+} from "./radial-area";
+export {
+  RadialAxis,
+  type RadialAxisProps,
+  type RadialLabelOrientation,
+  radialLabelFontSize,
+} from "./radial-axis";
+export { RadialBar, type RadialBarProps } from "./radial-bar";
+export {
+  RadialCenter,
+  type RadialCenterProps,
+  type RadialCenterState,
+} from "./radial-center";
+export {
+  createRadialEdgeLookup,
+  RADIAL_CROSSHAIR_SPRING,
+  RADIAL_DOT_SPRING,
+  type RadialAngleType,
+  RadialChart,
+  type RadialChartContextValue,
+  type RadialChartProps,
+  type RadialDotMotion,
+  type RadialEdgeLookup,
+  RadialHoverDot,
+  type RadialMaxValue,
+  type RadialOrientation,
+  type RadialRingBand,
+  type RadialSeries,
+  radialNumberAt,
+  radialTimeOf,
+  useRadialAngleSpring,
+  useRadialChart,
+  useRadialDotAngle,
+} from "./radial-chart";
+export {
+  RadialDotBar,
+  type RadialDotBarAnnotation,
+  type RadialDotBarProps,
+  type RadialDotPattern,
+} from "./radial-dot-bar";
+export {
+  computeRadialDotGrid,
+  createRadialRowScale,
+  type RadialDotGridInput,
+  type RadialDotLayout,
+  type RadialDotSlot,
+  radialDotRowRadius,
+  stackRadialRows,
+} from "./radial-dot-bar-layout";
+export {
+  cartesianToAngle,
+  createRadialScale,
+  defaultRadialLayout,
+  degreesToRadians,
+  isFullArc,
+  niceRadialDomain,
+  polarToCartesian,
+  type RadialLayout,
+  radialAngleToBin,
+  radialArcBounds,
+  radialArcFraction,
+  radialArcPath,
+  radialBinCenterAngle,
+  radialBinStartAngle,
+  radialValueTicks,
+  radialWedgePath,
+  TAU,
+} from "./radial-geometry";
+export { RadialLegend, type RadialLegendProps } from "./radial-legend";
+export { RadialLine, type RadialLineProps } from "./radial-line";
+export { RadialRingBar, type RadialRingBarProps } from "./radial-ring-bar";
+export {
+  RadialScrubber,
+  type RadialScrubberProps,
+  type RadialScrubberVariant,
+} from "./radial-scrubber";
+export { radialSeriesColor } from "./radial-series-color";
+export {
+  ReferenceArea,
+  type ReferenceAreaProps,
+  type ReferenceAreaStrokeStyle,
+} from "./reference-area";
+export {
+  computeReferenceAreaRect,
+  type ReferenceAreaIfOverflow,
+  type ReferenceAreaRect,
+} from "./reference-area-geometry";
+// Ring chart components
+export { Ring, type RingLineCap, type RingProps } from "./ring";
+export { RingCenter, type RingCenterProps } from "./ring-center";
+export { RingChart, type RingChartProps } from "./ring-chart";
+export {
+  defaultRingColors,
+  type RingContextValue,
+  type RingData,
+  RingProvider,
+  ringCssVars,
+  useRing,
+  useRingHover,
+  useRingStable,
+} from "./ring-context";
+export { RingGrid, type RingGridProps } from "./ring-grid";
+export { RingLabels, type RingLabelsProps } from "./ring-labels";
+// Sankey chart components
+export {
+  SankeyChart,
+  type SankeyChartProps,
+  type SankeyContextValue,
+  type SankeyData,
+  type SankeyLabelOrientation,
+  SankeyLink,
+  type SankeyLinkDatum,
+  type SankeyLinkProps,
+  SankeyNode,
+  type SankeyNodeDatum,
+  type SankeyNodeProps,
+  SankeyProvider,
+  SankeyTooltip,
+  type SankeyTooltipData,
+  type SankeyTooltipProps,
+  sankeyCssVars,
+  useSankey,
+} from "./sankey";
+// Scatter chart components
+export {
+  Scatter,
+  type ScatterInactiveMode,
+  type ScatterProps,
+} from "./scatter";
+export { ScatterChart, type ScatterChartProps } from "./scatter-chart";
+export type { ScatterJitter } from "./scatter-jitter";
+// Segment selection components
+export {
+  SegmentBackground,
+  type SegmentBackgroundProps,
+  SegmentLineFrom,
+  type SegmentLineProps,
+  SegmentLineTo,
+  type SegmentLineVariant,
+} from "./segment";
+// Series bar (time-based columns for ComposedChart)
+export { SeriesBar, type SeriesBarProps } from "./series-bar";
+export {
+  SeriesMarkers,
+  type SeriesMarkersProps,
+} from "./series-markers";
+export {
+  getSeriesMarkerVisualExtent,
+  SeriesPointMarker,
+  type SeriesPointMarkerProps,
+  type SeriesPointMarkerStyle,
+} from "./series-point-marker";
+// Sparkline components
+export {
+  AreaSparkline,
+  type AreaSparklineProps,
+  BarSparkline,
+  type BarSparklineProps,
+  DEFAULT_SPARKLINE_ANIMATION_DURATION_MS,
+  DEFAULT_SPARKLINE_DATA_TRANSITION_MS,
+  DEFAULT_SPARKLINE_HOVER_SPRING,
+  LineSparkline,
+  type LineSparklineProps,
+  type SparklineBaseProps,
+  type SparklineCrosshair,
+  type SparklineSpringConfig,
+  useSparklineHover,
+} from "./sparkline";
+export type {
+  SparklineCurve,
+  SparklineDataKey,
+  SparklinePadding,
+} from "./sparkline-geometry";
+export {
+  StaticChartPreviewProvider,
+  useStaticChartPreview,
+} from "./static-chart-preview-context";
+export {
+  type ArcDatum,
+  type ArcGeometry,
+  arcPath,
+  buildArcs,
+  buildRevealDelays,
+  buildRevealSchedule,
+  buildSunburstEnterTiming,
+  centroidAngle,
+  clockwiseFraction,
+  defaultSunburstGrowPadding,
+  type Focus,
+  geomCentroidAngle,
+  geomCentroidRadius,
+  geometryFor,
+  lerpGeometry,
+  localProgress,
+  ringOptions,
+  type SunburstEnterTiming,
+  type SunburstRevealSchedule,
+  type SunburstSegmentEnterDelays,
+  segmentRevealFromRingSweep,
+  sumValues,
+  transitionGeometry,
+} from "./sunburst";
+// Sunburst chart components
+export {
+  SunburstBreadcrumb,
+  type SunburstBreadcrumbItem,
+  type SunburstBreadcrumbProps,
+  useSunburstBreadcrumbItems,
+} from "./sunburst-breadcrumb";
+export { SunburstCenter, type SunburstCenterProps } from "./sunburst-center";
+export { SunburstChart, type SunburstChartProps } from "./sunburst-chart";
+export {
+  defaultSunburstColors,
+  opacityForRelativeDepth,
+  sunburstCssVars,
+  useSunburstHover,
+  useSunburstStable,
+} from "./sunburst-context";
+export type { SunburstNode } from "./sunburst-data";
+export {
+  SunburstHint,
+  type SunburstHintContext,
+  type SunburstHintProps,
+} from "./sunburst-hint";
+export { SunburstLabels, type SunburstLabelsProps } from "./sunburst-labels";
+export { SunburstSegment, type SunburstSegmentProps } from "./sunburst-segment";
+// Tooltip components
+export {
+  ChartTooltip,
+  type ChartTooltipProps,
+  DateTicker,
+  type DateTickerProps,
+  type IndicatorWidth,
+  TooltipBox,
+  type TooltipBoxProps,
+  TooltipContent,
+  type TooltipContentProps,
+  TooltipDot,
+  type TooltipDotProps,
+  TooltipHeader,
+  type TooltipHeaderProps,
+  TooltipIndicator,
+  type TooltipIndicatorProps,
+  type TooltipRow,
+} from "./tooltip";
+export {
+  TrendLine,
+  type TrendLineProps,
+  type TrendLineStrokeStyle,
+} from "./trend-line";
+export {
+  computeLinearRegression,
+  computeTrendSegment,
+  interpolateTrendSegment,
+  type LinearRegression,
+  type TrendPoint,
+  type TrendSegment,
+} from "./trend-line-utils";
+export { useAnimatedYDomains } from "./use-animated-y-domains";
+// Chart interaction hook
+export {
+  type ChartSelection,
+  useChartInteraction,
+} from "./use-chart-interaction";
+export {
+  PatternCircles,
+  PatternHexagons,
+  PatternLines,
+  PatternWaves,
+} from "./visx-pattern";
+export {
+  Weekends,
+  type WeekendsFillType,
+  type WeekendsProps,
+} from "./weekends";
+export { XAxis, type XAxisProps } from "./x-axis";
+export { YAxis, type YAxisProps } from "./y-axis";
+export {
+  DEFAULT_Y_AXIS_ID,
+  getPrimaryYScale,
+  type YAxisOrientation,
+} from "./y-axis-scales";
+export {
+  resolveYAxisTickCount,
+  Y_AXIS_DEFAULT_TICK_COUNT,
+  Y_AXIS_MAX_TICK_COUNT,
+  Y_AXIS_MIN_TICK_COUNT,
+} from "./y-axis-ticks";
+export {
+  applyYDomainOverride,
+  computeYDomainsByAxis,
+  isLoadingChromePhase,
+  isYDomainTweenPhase,
+  mergeYDomainRecords,
+  niceYDomain,
+  resolveFloatingYDomain,
+  shouldTweenYDomain,
+  type YDomain,
+  type YDomainOverride,
+} from "./y-domain-utils";
