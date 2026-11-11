@@ -5,6 +5,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -43,3 +46,19 @@ jobs:
         with:
           name: Monarx-prodazhi-apk
           path: Monarx-prodazhi.apk
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="build-${{ github.run_number }}"
+          gh release create "$TAG" Monarx-prodazhi.apk --title "Monarx продажи — сборка ${{ github.run_number }}" --notes "APK для Android. Установите файл на телефоне." --latest
+
+      - name: Push APK to apk branch
+        run: |
+          mkdir out && cp Monarx-prodazhi.apk out/ && cd out
+          git init -q -b apk
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add Monarx-prodazhi.apk && git commit -q -m "APK build ${{ github.run_number }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" apk
